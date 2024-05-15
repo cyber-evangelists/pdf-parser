@@ -49,15 +49,17 @@ def tuples_to_json(data_tuples):
             "Report Date": data_tuple[4]
         }
         json_data.append(json_entry)
+        print(json_entry)
+
     return json_data
 
 
-pdf_file = 'invoice.pdf'
+pdf_file = 'pdfReports/12042023.pdf'
 data_tuples = extract_data_from_pdf(pdf_file)
 json_data = tuples_to_json(data_tuples)
 
 
-with open('data.json', 'w') as json_file:
+with open('./Json Data/12042023.json', 'w') as json_file:
     json.dump(json_data, json_file, indent=4)
 
 

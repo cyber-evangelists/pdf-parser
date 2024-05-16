@@ -32,9 +32,10 @@ def extract_data_from_pdf(pdf_file):
                 
                 # Check if the line contains the Assigned Owner
                 if "Assigned Owner" in line:
-                    assigned_owner_match = re.search(r'Assigned Owner (A\d{5})', line)
+                    # assigned_owner_match = re.search(r'Assigned Owner (A\d{5})', line)
+                    assigned_owner_match = re.search(r'Assigned Owner A\d{5}\s+(.+)$', line)
                     if assigned_owner_match:
-                        assigned_owner = assigned_owner_match.group(1)
+                        assigned_owner = "Assigned Owner " + assigned_owner_match.group(1)
                         
                 # Check if the line contains the CAP number
                 cap_number_match = re.search(r'\bD\d+\s+', line)
@@ -64,7 +65,7 @@ def tuples_to_json(data_tuples):
     for data_tuple in data_tuples:
         json_entry = {
             "D#": data_tuple[0],
-            "Assigned Owner": data_tuple[1],
+            "Status": data_tuple[1],
             "Received Date": data_tuple[2],
             "Last Active Date": data_tuple[3],
             "Report Date": data_tuple[4]
@@ -76,12 +77,12 @@ def tuples_to_json(data_tuples):
 
 
 # Example usage
-pdf_file = 'pdfReports/12042023.pdf'
+pdf_file = 'pdfReports/01032024 DOE Report.pdf'
 data_tuples = extract_data_from_pdf(pdf_file)
 json_data = tuples_to_json(data_tuples)
 
 # Write JSON data to a file
-with open('./Json Data/12042023.json', 'w') as json_file:
+with open('./Json Data/01032024 DOE Report.json', 'w') as json_file:
     json.dump(json_data, json_file, indent=4)
 
 print('Data transferred to JSON file.')

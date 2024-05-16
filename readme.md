@@ -8,9 +8,9 @@ This script allows you to extract invoice data from a PDF file and convert it in
 Before running the script, ensure you have the following installed:
 
 1. Python (version 3 or above)
-2. PyPDF2 library
+2. pypdf library
 3. Regular Expression library (re)
-4. You can install PyPDF2 and re libraries using pip:
+4. You can install pypdf and re libraries using pip:
 
 
 ```bash
@@ -27,7 +27,9 @@ Download the Script: Save the provided Python script (invoice_extractor.py) to y
 Open your terminal or command prompt.
 
 
-Navigate to the directory where the script invoice_extractor.py is saved.
+Navigate to the directory where the script main.py is saved.
+
+Give the name along with the path of the pdf from where data is to be extracted and also give name and path of ths json file where data has to be organized in tuples.
 
 Run the script using the following command:
 

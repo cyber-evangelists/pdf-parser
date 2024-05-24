@@ -77,7 +77,7 @@ def tuples_to_json(data_tuples):
 
 
 # Example usage
-pdf_file = 'pdfReports/01032024 DOE Report.pdf'
+pdf_file = 'your_pdf.pdf'
 data_tuples = extract_data_from_pdf(pdf_file)
 json_data = tuples_to_json(data_tuples)
 
